@@ -402,7 +402,7 @@ find_package(TBB CONFIG REQUIRED)
 foreach(_tbb_target TBB::tbb TBB::tbbmalloc TBB::tbbmalloc_proxy)
   if(TARGET ${_tbb_target})
     set_target_properties(${_tbb_target} PROPERTIES
-      MAP_IMPORTED_CONFIG_DEBUG        Release
+      MAP_IMPORTED_CONFIG_DEBUG        Debug
       MAP_IMPORTED_CONFIG_MINSIZEREL   Release
       MAP_IMPORTED_CONFIG_RELWITHDEBINFO Release)
   endif()
