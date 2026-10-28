@@ -342,9 +342,12 @@ void AreaMesher::mesh_area(const osmium::Area &area,
     {
         // write debug file
         std::stringstream strstream;
-        strstream << basename << "-" << area_id(area) << ".osm";
+        // strstream << basename << "-" << area_id(area) << ".osm";
+        strstream << basename << "-" << area_id(area);
         std::filesystem::path path = std::filesystem::temp_directory_path() / strstream.str();
-        osmium::io::Writer writer(path, osmium::io::overwrite::allow);
+        osmium::io::File file(path.string(), "osm");
+        osmium::io::Writer writer(file, osmium::io::overwrite::allow);
+        // osmium::io::Writer writer(path, osmium::io::overwrite::allow);
         osmium::memory::Buffer debug_buffer{16 * 1024};
 
         // The debug file is a side effect and must not be visible in the result: keep
