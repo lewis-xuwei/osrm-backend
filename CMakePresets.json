@@ -61,7 +61,13 @@
     {
       "name": "ci-windows",
       "inherits": "release",
-      "generator": "Visual Studio 18 2026",
+      "generator": "Visual Studio 17 2022",
+      "cacheVariables": { "VCPKG_TARGET_TRIPLET": "x64-windows-static-md" }
+    },
+    {
+      "name": "ci-windows-debug",
+      "inherits": "debug",
+      "generator": "Visual Studio 17 2022",
       "cacheVariables": { "VCPKG_TARGET_TRIPLET": "x64-windows-static-md" }
     }
   ],
@@ -74,7 +80,8 @@
     { "name": "ci-linux-asan",    "configurePreset": "ci-linux-asan" },
     { "name": "ci-macos-arm64",   "configurePreset": "ci-macos-arm64" },
     { "name": "ci-macos-x64",     "configurePreset": "ci-macos-x64" },
-    { "name": "ci-windows",       "configurePreset": "ci-windows", "configuration": "Release" }
+    { "name": "ci-windows",       "configurePreset": "ci-windows", "configuration": "Release" },
+    { "name": "ci-windows-debug",       "configurePreset": "ci-windows-debug", "configuration": "Debug" }
   ],
   "testPresets": [
     {
